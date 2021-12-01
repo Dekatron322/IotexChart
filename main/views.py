@@ -23,3 +23,20 @@ def IndexView(request):
 	else:
 		context = {}
 		return render(request, "main/index.html", context )
+
+
+def BannerView(request):
+	if request.method == "POST":
+		pass
+
+	else:
+		context = {}
+		return render(request, "main/banner.html", context )
+
+def UnvettedView(request):
+	if request.method == "POST":
+		pass
+
+	else:
+		context = {}
+		return render(request, "main/unvetted.html", context )
