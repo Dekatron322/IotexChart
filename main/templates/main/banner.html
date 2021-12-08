@@ -24,7 +24,18 @@
 				</div>
 				
 			</div>
-		</div>	  
+		</div>
+								{% if messages %}
+                <div class="col-12">
+                    {% for message in messages %}
+                    {% if message.tags == 'success' %}
+                    <div class="alert alert-danger text-center ">
+                        {{message }}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                {% endif %}	  
 
 		<!-- Main content -->
 		<section class="content">
@@ -35,7 +46,8 @@
 						  <h4 class="box-title">Create Advertisement</h4>
 						</div>
 						<!-- /.box-header -->
-						<form class="form">
+						<form class="form" action="" method="post" enctype="multipart/form-data">
+							{% csrf_token %}
 							<div class="box-body">
 								<h4 class="box-title text-info"><i class="ti-file mr-15"></i> Personal Info</h4>
 								<hr class="my-15">
@@ -43,13 +55,13 @@
 								  <div class="col-md-6">
 									<div class="form-group">
 									  <label>Title</label>
-									  <input type="text" class="form-control" placeholder="your ads title">
+									  <input type="text" name="title" class="form-control" placeholder="your ads title">
 									</div>
 								  </div>
 								  <div class="col-md-6">
 									<div class="form-group">
 									  <label>Text</label>
-									  <input type="text" class="form-control" placeholder="Your ads text">
+									  <input name="text" type="text" class="form-control" placeholder="Your ads text">
 									</div>
 								  </div>
 								</div>
@@ -57,13 +69,13 @@
 								  <div class="col-md-6">
 									<div class="form-group">
 									  <label >Link</label>
-									  <input type="text" class="form-control" placeholder="https://example.com">
+									  <input name="link" type="text" class="form-control" placeholder="https://example.com">
 									</div>
 								  </div>
 								  <div class="col-md-6">
 									<div class="form-group">
 									  <label >Banners</label>
-									  <input type="file" class="form-control" placeholder="Phone">
+									  <input name="image" type="file" class="form-control" placeholder="Phone">
 									</div>
 								  </div>
 								</div>
@@ -71,46 +83,30 @@
 								<hr class="my-15">
 								<div class="form-group">
 								  <label>Company</label>
-								  <input type="text" class="form-control" placeholder="Company Name">
+								  <input name="company_name" type="text" class="form-control" placeholder="Company Name">
 								</div>
 								<div class="row">
 								  <div class="col-md-6">
 									<div class="form-group">
 									  <label>Into</label>
-									  <select class="form-control">
-										<option>Interested in</option>
-										<option>design</option>
-										<option>development</option>
-										<option>illustration</option>
-										<option>branding</option>
-										<option>blockchain</option>
-										<option>more</option>
-									  </select>
+									  <input name="interest" type="text" class="form-control" placeholder="what are you into">
 									</div>
 								  </div>
 								  <div class="col-md-6">
 									<div class="form-group">
-									  <label>Budget</label>
-									  <select class="form-control">
-										<option>Budget</option>
-										<option>less than 5000$</option>
-										<option>5000$ - 10000$</option>
-										<option>10000$ - 20000$</option>
-										<option>more than 20000$</option>
-									  </select>
+										<label>Budget</label>
+									  <input name="budget" type="text" class="form-control" placeholder="e.g 100USDT">
 									</div>
 								  </div>
 								</div>
 								<p style="color: green">Payment should be made to the the address: <strong>123495skfgrottwr94eeeie <i class="ti-clipboard mr-15"></i></strong></p>
 								<div class="form-group">
 								  <label>Include Proof of payment</label>
-								  <label class="file">
-									<input type="file" id="file">
-								  </label>
+								 <input name="proof_of_payment" type="text" class="form-control" placeholder="transaction hash">
 								</div>
 								<div class="form-group">
 								  <label>About Project</label>
-								  <textarea rows="5" class="form-control" placeholder="About Project"></textarea>
+								  <textarea name="about_project" rows="5" class="form-control" placeholder="About Project"></textarea>
 								</div>
 							</div>
 							<!-- /.box-body -->
