@@ -16,7 +16,7 @@
 						<nav>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-								<li class="breadcrumb-item" aria-current="page">Forms</li>
+								
 								<li class="breadcrumb-item active" aria-current="page">Unvetted List</li>
 							</ol>
 						</nav>
@@ -24,19 +24,41 @@
 				</div>
 				
 			</div>
-		</div>	
+		</div>
+<style type="text/css">
+    
+    .alert{
+        box-shadow: 5px 5px 10px #111;
+        border: none;
+    }
+    @keyframes show-toast {
+    0%   {bottom: -100%;}
+    20%  {bottom: 50px;}
+    80%  {bottom: 50px;}
+    100% {bottom: -100%;}
+}
 
-							{% if messages %}
-                <div class="col-12">
-                    {% for message in messages %}
-                    {% if message.tags == 'success' %}
-                    <div class="alert alert-danger text-center ">
-                        {{message }}
-                    </div>
-                    {% endif %}
-                    {% endfor %}
-                </div>
-                {% endif %}  
+.notification.is-toast {
+    position: fixed;
+    bottom: 100%;
+    right: 20px;
+    animation-name: show-toast;
+    animation-duration: 4s;
+}
+@media(max-width: 450px) {
+    h3{
+      font-size: 15px !important;
+    }
+  }
+</style>	
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="notification is-toast alert alert-{{message.tags}} text-center" role="alert" style="background-color: #1DB954; color: #fff; border-radius: 6px; font-weight: 600;">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %} 
 
 		<!-- Main content -->
 		<section class="content" >
@@ -57,7 +79,7 @@
 
 								<p>Place your token on the Un-Vetted list by depositing 2000.0000 IotexChart Tokens. This is non-refundable and cant be withdrawn.</p>
 
-								<h4 class="box-title">Wallet Address : e47844wle346-042244dgh <i class="ti-clipboard mr-15"></i></h4>
+								<p class="box-title">Wallet Address : 0x100000000000000000000000000000000000  <i class="ti-clipboard mr-15 copy-btn" data-hex="0x100000000000000000000000000000000000 "></i></p>
 								<hr class="my-15">
 								<div class="row">
 								  <div class="col-md-6">
@@ -101,9 +123,11 @@
 							</div>
 							<!-- /.box-body -->
 							<div class="box-footer">
+								<a href="/">
 								<button type="button" class="btn btn-rounded btn-warning btn-outline mr-1">
 								  <i class="ti-trash"></i> Cancel
 								</button>
+							</a>
 								<button type="submit" class="btn btn-rounded btn-primary btn-outline">
 								  <i class="ti-save-alt"></i> Save
 								</button>
@@ -130,5 +154,20 @@
   </div>
   <!-- /.content-wrapper -->
 
+<script type="text/javascript">
+  const copyBtns = [...document.getElementsByClassName('copy-btn')]
+  let previous = null
+
+  copyBtns.forEach(btn=> btn.addEventListener('click', ()=>{
+    const number = btn.getAttribute('data-hex')
+    navigator.clipboard.writeText(number)
+    btn.textContent = 'copied'
+
+    if (previous) {
+      previous.textContent = 'copied'
+    }
+    previous = btn
+  }))
+</script>
 
 {% endblock %}
