@@ -27,6 +27,21 @@ import json
 import time
 from datetime import datetime, timedelta
 
+def WowSwapView(request):
+	if request.method == "POST":
+		pass
+	else:
+		response = requests.get("https://api.coingecko.com/api/v3/simple/price?ids=wowswap&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true").json()
+		image = Banner.objects.all().order_by('?')[:1]
+		data = requests.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=wowswap&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h").json()
+		price = str(response["wowswap"]["usd"])
+		market_cap = int(response["wowswap"]["usd_market_cap"])
+		hr_vol = str(response["wowswap"]["usd_24h_vol"])
+		hr_chg = str(response["wowswap"]["usd_24h_change"])
+		last_updated = str(response["wowswap"]["last_updated_at"])
+		context = {"data":data, "price":price, "market_cap":market_cap, "hr_vol":hr_vol, "hr_chg":hr_chg, "last_updated":last_updated, "image":image}
+		return render(request, "main/wow.html", context)
+
 
 def ImagicTokenView(request):
 	if request.method == "POST":
@@ -156,9 +171,10 @@ def IndexView(request):
 		metanyx = requests.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=metanyx&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h").json()
 		iotexshiba = requests.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=iotexshiba&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h").json()
 		imagictoken = requests.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=imagictoken&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h").json()
+		wow = requests.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=wowswap&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h").json()
 		
 
-		context = {"banner": banner, "side_banner":side_banner, "aside_banner":aside_banner, "data":data, "vita":vita, "zoom":zoom, "iotex":iotex, "metanyx":metanyx, "iotexshiba":iotexshiba, "imagictoken":imagictoken,}
+		context = {"banner": banner, "side_banner":side_banner, "aside_banner":aside_banner, "data":data, "vita":vita, "zoom":zoom, "iotex":iotex, "metanyx":metanyx, "iotexshiba":iotexshiba, "imagictoken":imagictoken, "wow":wow}
 		return render(request, "main/index.html", context )
 
 @login_required(login_url='/signin')

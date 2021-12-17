@@ -3,7 +3,8 @@
 {% load static %}
 
 {% block content %}
-<script src="https://kit.fontawesome.com/5bc9974d75.js" crossorigin="anonymous"></script>
+
+
  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
 	  <div class="container-full">
@@ -71,32 +72,26 @@
 					  </div>
 					  <div class="mailbox-read-info clearfix mb-20">
 						
-						<a href="https://twitter.com/0xMagicland" target="_blank">
+						<a href="https://twitter.com/Wowswap_io" target="_blank">
 						  <button type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-container="body" title="community">
 							<i class="fa fa-twitter"> twitter</i></button>
 						</a>
-						<a href="https://github.com/magiclandfinance" target="_blank">
+						<a href="https://t.me/wowswap" target="_blank">
 						  <button type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-container="body" title="community">
-							<i class="fa fa-github"> github</i></button>
+							<i class="fa fa-telegram"> telegram</i></button>
 						</a>
-						<a href="https://discord.gg/gukeP7FZRu" target="_blank">
-						  <button type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-container="body" title="community">
-							<i class="fab fa-discord"> discord</i></button>
-						</a>
-						
 
 						
 					  </div>
 					  <!-- /.mailbox-read-info -->
 					  <div class="mailbox-controls with-border clearfix">                
-						<div class="float-left"><a href="https://magicland.fi/" target="_blank">
-						  <button type="button" class=
-						  "btn btn-primary btn-sm" data-toggle="tooltip" title="website">
+						<div class="float-left"><a href="https://wowswap.io/" target="_blank">
+						  <button type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" title="website">
 						  <i class="fa fa-globe"> website</i></button>
 						  </a>
 						  
 						  </a>
-						  <a href="https://iotexscan.io/token/0x490cfbf9b9c43633ddd1968d062996227ef438a9" target="_blank">
+						  <a href="https://iotexscan.io/token/0xD67de0e0a0Fd7b15dC8348Bb9BE742F3c5850454" target="_blank">
 						  <button type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" title="explorer">
 						   iotexscan</button>
 						  </a>
@@ -148,8 +143,7 @@
 									
 									<div class="box">
 										<div class="box-body py-10">
-											<script src="https://widgets.coingecko.com/coingecko-coin-compare-chart-widget.js"></script>
-											<coingecko-coin-compare-chart-widget  coin-ids="imagictoken" currency="usd" locale="en"></coingecko-coin-compare-chart-widget>
+											<script src="https://widgets.coingecko.com/coingecko-coin-compare-chart-widget.js"></script><coingecko-coin-compare-chart-widget  coin-ids="wowswap" currency="usd" locale="en"></coingecko-coin-compare-chart-widget>
 										</div>
 									</div>
 									<div class="box" style="margin-top:-60px">
@@ -166,6 +160,7 @@
 														
 									<div id="calendar" class="dask evt-cal min-h-400">
 										<img width="100%"  src="{{rs.image.url}}">
+
 										<h5 >{{ rs.title}}</h5>
 										<p>{{ rs.about_project }}</p>
 									</div>
@@ -174,7 +169,6 @@
 								</a>
 							</div>
 							{% endfor %}
-							
 							
 							
 						</div>

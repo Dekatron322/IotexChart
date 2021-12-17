@@ -149,6 +149,16 @@
 						  
 						</tr>
 						<tr>
+							{% for rs in wow %}
+						  <td><img width="20px" height="20px" src="{{ rs.image }}"><a href="{% url 'main:wow' %}"> {{ rs.name }} ({{ rs.symbol}})</a></td>
+						  <td>{{ rs.total_supply }} </td>
+						  <td><span class="text-muted"><i class="fa fa-clock-o"></i> ${{ rs.current_price }}</span> </td>
+						   <td>{{ rs.market_cap}}</td>
+						  <td>{{ rs.market_cap_rank}}</td>
+						  {% endfor %}
+						  
+						</tr>
+						<tr>
 							{% for rs in data %}
 						  <td><img width="20px" height="20px" src="{{ rs.image }}"><a href="{% url 'main:game_fantasy_token' %}"> {{ rs.name }} ({{ rs.symbol}})</a></td>
 						  <td>{{ rs.total_supply }}</td>
@@ -331,13 +341,13 @@ document.querySelector('.list').addEventListener('click', function(e) {
 					</div>
 					<div class="box-body no-padding mailbox-nav">
 					  <ul class="nav nav-pills flex-column ">
-						<li id="Iotex" class="nav-item"><a class="nav-link" href="/banner/"><i class="ion ion-ios-email-outline"></i> Banner Advert <small>advertise your banners</small>
+						<li id="Iotex" class="nav-item"><a class="nav-link" href="/banner/"><i class="fa fa-bullhorn"></i> Banner Advert <small>advertise your banners</small>
 						  </a></li>
-						<li class="nav-item"><a class="nav-link" href="/unvetted/"><i class="ion ion-paper-airplane"></i> Token Advert <small>advertise your token on iotex chart</small></a></li>
-						<li class="nav-item"><a class="nav-link" href="javascript:void(0)"><i class="ion ion-email-unread"></i> IotexChartDex <span class="label label-warning pull-right">coming soon</span></a></li>
-						<li class="nav-item"><a class="nav-link" href="javascript:void(0)"><i class="ion ion-star"></i>  Portfolio <span class="label label-warning pull-right">coming soon</span></a>
+						<li class="nav-item"><a class="nav-link" href="/unvetted/"><i class="fa fa-btc"></i> Token Advert <small>advertise your token on iotex chart</small></a></li>
+						<li class="nav-item"><a class="nav-link" href="javascript:void(0)"><i class="fa fa-exchange"></i> IotexChartDex <span class="label label-warning pull-right">coming soon</span></a></li>
+						<li class="nav-item"><a class="nav-link" href="javascript:void(0)"><i class="ti-wallet"></i>  Portfolio <span class="label label-warning pull-right">coming soon</span></a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="https://iotexchart.com/" target="_blank"><i class="ion ion-trash-a"></i> About Us</a></li>
+						<li class="nav-item"><a class="nav-link" href="https://iotexchart.com/" target="_blank"><i class="fa fa-globe"></i> About Us</a></li>
 					  </ul>
 					</div>
 					</div>

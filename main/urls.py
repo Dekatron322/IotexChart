@@ -27,6 +27,7 @@ urlpatterns = [
 	path("iotex/", views.IotexView, name="iotex"),
 	path("zoom-swap/", views.ZoomSwapView, name="zoom_swap"),
 	path("vitality/", views.VitalityView, name="vitality"),
+	path("wow/", views.WowSwapView, name="wow"),
 	path("game-fantasy-token/", views.GameFantasyTokenView, name="game_fantasy_token"),
 
 ]
