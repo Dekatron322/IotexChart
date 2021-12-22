@@ -18,7 +18,7 @@ Visit https://iotexchartapp.com/ . The demo is updated whenever the demo branch 
 It's best to install Python projects in a Virtual Environment. Once you have set up a VE, clone this project
 
 ```bash
-git clone https://github.com/IOTEXCHART/IotexChart
+git clone https://github.com/Dekatron322/IotexChart
 ```
 Then
 
