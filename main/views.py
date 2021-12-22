@@ -27,6 +27,22 @@ import json
 import time
 from datetime import datetime, timedelta
 
+def StakingView(request):
+	if request.method == "POST":
+		pass
+	else:
+		
+		context = {}
+		return render(request, "main/staking.html", context)
+
+def YourStakeView(request):
+	if request.method == "POST":
+		pass
+	else:
+		
+		context = {}
+		return render(request, "main/your_stake.html", context)
+
 def WowSwapView(request):
 	if request.method == "POST":
 		pass

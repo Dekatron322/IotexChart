@@ -1,7 +1,7 @@
 {% extends "main/base.html" %}
 
 {% load static %}
-
+{% load humanize %}
 {% block content %}
 <nav class="main-nav" role="navigation" >
 	  <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script><div style="margin-left: -150px" id="coinmarketcap-widget-marquee" coins="1,1027,825,2777,5426,5994,12973,11206,14911,14586,12180" currency="USD" theme="dark" transparent="true" show-symbol-logo="true"></div>
@@ -126,7 +126,7 @@
 						  <td><img width="20px" height="20px" src="{{ rs.image }}"><a href="{% url 'main:iotex' %}"> {{ rs.name }} ({{ rs.symbol}})</a></td>
 						  <td>{{ rs.total_supply }}</td>
 						  <td><span class="text-muted"><i class="fa fa-clock-o"></i> ${{ rs.current_price }}</span> </td>
-						  <td>{{ rs.market_cap}}</td>
+						  <td>{{ rs.market_cap|intcomma}}</td>
 						  <td>{{ rs.market_cap_rank}}</td>
 						  {% endfor %}
 						</tr>

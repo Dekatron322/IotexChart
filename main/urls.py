@@ -21,6 +21,8 @@ urlpatterns = [
 
 
 	#coin urls 
+	path("staking/", views.StakingView, name="staking"),
+	path("your-stake/", views.YourStakeView, name="your_stake"),
 	path("imagictoken/", views.ImagicTokenView, name="imagictoken"),
 	path("metanyx/", views.MetanyxView, name="metanyx"),
 	path("iotex-shiba/", views.IotexShibaView, name="iotex_shiba"),
